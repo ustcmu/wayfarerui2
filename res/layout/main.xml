@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+	Description: Initial Interface
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation = "vertical"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+>
+ <fragment 
+		android:name			= "com.example.wayfarer_uiversion2.InitialFrag"
+		android:id				= "@+id/topmenu_frag"
+		android:layout_width	= "match_parent"
+		android:layout_height	= "wrap_content"/>
+
+<fragment
+		android:name			= "com.example.wayfarer_uiversion2.SearchFrag"
+		android:id				= "@+id/topsearch_frag"
+		android:layout_width    = "match_parent"
+		android:layout_height	= "wrap_content"/>
+<!-- 
+ <ImageButton
+		android:id							= "@+id/bbutton"
+		android:layout_width				= "54dp"
+		android:layout_height				= "42dp"
+		android:layout_alignParentBottom	= "true"
+		android:layout_alignParentLeft		= "true"
+		android:layout_marginBottom			= "30dp"
+		android:background					= "@drawable/bottom_button"
+		android:onClick						= "ShowAllItineraries" />
+-->
+ </RelativeLayout>
+
