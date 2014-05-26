@@ -19,6 +19,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 /**
@@ -35,6 +36,7 @@ public class InitialInterface extends Activity
     private String[] mItineraries = {"Beijing", "SValley"};
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
+    private ImageButton bButton;
     private ActionBarDrawerToggle mDrawerToggle;
 
 	@Override
@@ -48,23 +50,19 @@ public class InitialInterface extends Activity
         InitialFrag newFragment = new InitialFrag();
         ft.add(R.id.toptoolbar, newFragment);
         ft.commit();
-	
+
+        
         // initial config for left drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mItineraries));
-        // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
-        
+    
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-		
-        
-        // use actionbar to control drawer list
+	    // use actionbar to control drawer list
 		mDrawerToggle = new ActionBarDrawerToggle(
                 this,                 
                 mDrawerLayout,         
@@ -82,7 +80,6 @@ public class InitialInterface extends Activity
         		}
         	};
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        
 	}
 	
 	public void Searchloc(View target)
@@ -101,8 +98,12 @@ public class InitialInterface extends Activity
 
 	public void ShowAllItineraries(View target)
 	{
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mDrawerLayout.openDrawer(mDrawerList);
 	}
 	
+
 	public boolean onOptionsItemSelected(MenuItem item) {
          // The action bar home/up action should open or close the drawer.
          // ActionBarDrawerToggle will take care of this.
@@ -125,7 +126,7 @@ public class InitialInterface extends Activity
 	        // Pass any configuration change to the drawer toggls
 	        mDrawerToggle.onConfigurationChanged(newConfig);
 	}
-	/* The click listner for ListView in the navigation drawer */
+
     private class DrawerItemClickListener implements ListView.OnItemClickListener 
     {
         @Override
