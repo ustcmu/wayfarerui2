@@ -31,7 +31,7 @@ public class InitialInterface extends Activity
 		fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         InitialFrag newFragment = new InitialFrag();
-        ft.add(R.id., newFragment);
+        ft.add(R.id.toptoolbar, newFragment);
         ft.commit();
 	}
 	
