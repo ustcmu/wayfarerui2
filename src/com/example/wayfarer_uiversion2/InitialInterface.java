@@ -1,10 +1,9 @@
 package com.example.wayfarer_uiversion2;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,26 +17,32 @@ import android.view.Menu;
  * @author Mu
  */
 
-public class InitialInterface extends FragmentActivity
+public class InitialInterface extends Activity
 {
+	
+    private FragmentManager fragmentManager = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
-		//getSupportFragmentManager().beginTransaction().add(R.id.topmenu_frag, ((InitialFrag) new InitialFrag())).commit();
-		FragmentManager fragmentManager = getFragmentManager();
-		FragmentTransaction fT = fragmentManager.beginTransaction();
-		fT.add(R.id.topmenu_frag, new InitialFrag());
-		fT.commit();
-		System.out.println("interface1");
+		
+		fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        InitialFrag newFragment = new InitialFrag();
+        ft.add(R.id., newFragment);
+        ft.commit();
 	}
 	
 	public void Searchloc(View target)
 	{
-		System.out.println("interface2");
-		getSupportFragmentManager().beginTransaction().replace(R.id.topsearch_frag, ((SearchFrag)new SearchFrag())).commit();	
+		fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        Fragment newFragment = new SearchFrag();
+        ft.replace(R.id.toptoolbar, newFragment);
+        ft.addToBackStack(null); 
+        ft.commit();	
 	}
 
 	public void Confirm(View target)

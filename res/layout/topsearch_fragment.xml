@@ -9,14 +9,14 @@
 >
  <ImageButton
  	android:id = "@+id/search"
- 	android:layout_width			= "100dp"
-	android:layout_height			= "100dp"
+ 	android:layout_width			= "50dp"
+	android:layout_height			= "50dp"
 	android:layout_alignParentLeft	= "true" 		
 	android:layout_alignParentStart = "true"
 	android:layout_marginLeft		= "20dp"
  	android:background = "@drawable/search_button"
  />
- <!--
+
  <ImageButton
  	android:id = "@+id/view"
  	android:layout_width			= "50dp"
@@ -26,6 +26,5 @@
 	android:layout_marginRight		= "20dp"
  	android:background = "@drawable/view_button"
  />
- -->
 
 </RelativeLayout>

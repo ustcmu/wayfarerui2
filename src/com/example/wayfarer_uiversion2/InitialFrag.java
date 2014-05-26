@@ -1,16 +1,13 @@
 package com.example.wayfarer_uiversion2;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 public class InitialFrag extends Fragment
 {
-	private static String TAG = "InitialFrag";
-	
 	public InitialFrag(){}
 		
 	@Override
@@ -18,4 +15,6 @@ public class InitialFrag extends Fragment
 	{
 		return inflater.inflate(R.layout.topmenu_fragment, container, false);
 	}
+
+	
 }
