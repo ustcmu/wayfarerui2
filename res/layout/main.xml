@@ -22,15 +22,6 @@
 	android:layout_height = "wrap_content">
 </RelativeLayout>
 
-<!-- This RelaytiveLayout is for left itineraries UI-->
-<!-- TODO: fix relative posision-->
-<RelativeLayout
-	android:id = "@+id/click_show_itineraries"
-	android:layout_width = "wrap_content"
-	android:layout_height = "wrap_content"
-	>
-</RelativeLayout>
-
 <ImageButton
 		android:id							= "@+id/bottombutton"
 		android:layout_width				= "54dp"

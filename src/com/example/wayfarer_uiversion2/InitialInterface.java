@@ -49,7 +49,9 @@ public class InitialInterface extends Activity
         FragmentTransaction ft = fragmentManager.beginTransaction();
         InitialFrag newFragment = new InitialFrag();
         ft.add(R.id.toptoolbar, newFragment);
+        System.out.println("main1");
         ft.commit();
+        System.out.println("main2");
 
         // initial config for left drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,6 +95,8 @@ public class InitialInterface extends Activity
         ft.replace(R.id.toptoolbar, newFragment);
         ft.addToBackStack(null); 
         ft.commit();
+        System.out.println("main3");
+
 	}
 
     // do nothing when click confirm
