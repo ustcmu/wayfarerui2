@@ -49,10 +49,10 @@ public class InitialInterface extends Activity
         FragmentTransaction ft = fragmentManager.beginTransaction();
         InitialFrag newFragment = new InitialFrag();
         ft.add(R.id.toptoolbar, newFragment);
-        System.out.println("main1");
+        System.out.println("InitialFrag");
         ft.commit();
-        System.out.println("main2");
 
+        /*
         // initial config for left drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -63,11 +63,13 @@ public class InitialInterface extends Activity
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mItineraries));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-    
+        */
+
+        /*
+        // use actionbar to control drawer list
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-	    // use actionbar to control drawer list
 		mDrawerToggle = new ActionBarDrawerToggle(
                 this,                 
                 mDrawerLayout,         
@@ -84,6 +86,7 @@ public class InitialInterface extends Activity
         		}
         	};
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        */
 	}
 	
     // replace frag when click search
@@ -95,7 +98,7 @@ public class InitialInterface extends Activity
         ft.replace(R.id.toptoolbar, newFragment);
         ft.addToBackStack(null); 
         ft.commit();
-        System.out.println("main3");
+        System.out.println("SearchFrag");
 
 	}
 
@@ -104,6 +107,7 @@ public class InitialInterface extends Activity
 	{
 	}
 
+    /*
     // show itineraries by left drawer when click a bottom button
 	public void ShowAllItineraries(View target)
 	{
@@ -111,7 +115,9 @@ public class InitialInterface extends Activity
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mDrawerLayout.openDrawer(mDrawerList);
 	}
-	
+	*/
+
+    /*
     // enable drawer list by top actionbar
 	public boolean onOptionsItemSelected(MenuItem item) {
          // The action bar home/up action should open or close the drawer.
@@ -137,7 +143,9 @@ public class InitialInterface extends Activity
 	        // Pass any configuration change to the drawer toggls
 	        mDrawerToggle.onConfigurationChanged(newConfig);
 	}
-
+    */
+    
+    /*
     // drawer list click listener
     private class DrawerItemClickListener implements ListView.OnItemClickListener 
     {
@@ -152,5 +160,17 @@ public class InitialInterface extends Activity
         // update main content in map
         // TODO
     }
-
+    */
+    
+    public void CheckAddr(View target)
+    {
+    	fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        Fragment newFragment = new BottomStartFrag();
+        ft.add(R.id.bottomtoolbar, newFragment);
+        ft.addToBackStack(null); 
+        ft.commit();
+        System.out.println("BottomStartFrag");
+    }
+	
 }
