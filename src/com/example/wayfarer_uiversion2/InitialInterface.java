@@ -51,10 +51,12 @@ public class InitialInterface extends Activity
         ft.add(R.id.toptoolbar, newFragment);
         ft.commit();
 
-        
         // initial config for left drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        // use myadapter to fill the listview
+        // MyAdapter mAdapter = new MyAdapter(this);
 
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mItineraries));
@@ -62,6 +64,7 @@ public class InitialInterface extends Activity
     
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
 	    // use actionbar to control drawer list
 		mDrawerToggle = new ActionBarDrawerToggle(
                 this,                 
@@ -69,8 +72,7 @@ public class InitialInterface extends Activity
                 R.drawable.ic_drawer,
                 R.string.drawer_open,
                 R.string.drawer_close) 
-           {
-            	
+           {            	
             	public void onDrawerClosed(View view) {
             	    super.onDrawerClosed(view);
             	}
@@ -82,6 +84,7 @@ public class InitialInterface extends Activity
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 	}
 	
+    // replace frag when click search
 	public void Searchloc(View target)
 	{
 		fragmentManager = getFragmentManager();
@@ -92,10 +95,12 @@ public class InitialInterface extends Activity
         ft.commit();
 	}
 
+    // do nothing when click confirm
 	public void Confirm(View target)
 	{
 	}
 
+    // show itineraries by left drawer when click a bottom button
 	public void ShowAllItineraries(View target)
 	{
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -103,7 +108,7 @@ public class InitialInterface extends Activity
         mDrawerLayout.openDrawer(mDrawerList);
 	}
 	
-
+    // enable drawer list by top actionbar
 	public boolean onOptionsItemSelected(MenuItem item) {
          // The action bar home/up action should open or close the drawer.
          // ActionBarDrawerToggle will take care of this.
@@ -113,6 +118,8 @@ public class InitialInterface extends Activity
         return super.onOptionsItemSelected(item);
     }
     
+
+    // write for top actionbar/ toggle
 	@Override  
 	protected void onPostCreate(Bundle savedInstanceState) {
 	        super.onPostCreate(savedInstanceState);
@@ -127,6 +134,7 @@ public class InitialInterface extends Activity
 	        mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 
+    // drawer list click listener
     private class DrawerItemClickListener implements ListView.OnItemClickListener 
     {
         @Override
@@ -140,6 +148,5 @@ public class InitialInterface extends Activity
         // update main content in map
         // TODO
     }
-    
-   
+
 }

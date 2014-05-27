@@ -1,5 +1,8 @@
 package com.example.wayfarer_uiversion2;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IInterface;
@@ -20,9 +23,9 @@ import android.widget.ImageView;
  * description: provide cover picture for app
  **/
 
-public class CoverPic extends Activity implements OnGestureListener
+public class CoverPic extends Activity
 {
-	private GestureDetector detector;
+	//	private GestureDetector detector;
 	
 	private static final String TAG = "CoverPic";
 
@@ -32,9 +35,27 @@ public class CoverPic extends Activity implements OnGestureListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.coverpic_main);
 
-		detector = new GestureDetector(this, this);
+		final Intent intent = new Intent(this, InitialInterface.class);
+
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask()
+		{
+			@Override
+			public void run()
+			{
+				startActivity(intent);
+				CoverPic.this.finish();
+			}
+		};
+
+		timer.schedule(task, 1000*3);
+	//	detector = new GestureDetector(this, this);
 	}
 
+	// throw following codes away
+	// because we hope loading pic will disappear automatically
+	// but not by touch
+	/*
 	// different Gesture action
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
@@ -75,9 +96,9 @@ public class CoverPic extends Activity implements OnGestureListener
 		Log.i(TAG, "onSingleTapUp: " + e.getAction());
 		return true;
 	}
-
-	//
-
+	*/
+	
+	// creat menu
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
