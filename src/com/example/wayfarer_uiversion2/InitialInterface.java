@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * class InitialInterface
@@ -36,8 +39,11 @@ public class InitialInterface extends Activity
     private String[] mItineraries = {"Beijing", "SValley"};
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-    private ImageButton bButton;
+    private ImageButton ib;
     private ActionBarDrawerToggle mDrawerToggle;
+    private LayoutInflater inflater;
+
+    private ImageView iv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -100,13 +106,43 @@ public class InitialInterface extends Activity
         ft.commit();
         System.out.println("SearchFrag");
 
+        inflater = getLayoutInflater();
+		View v1 = inflater.inflate(R.layout.topsearch_fragment, null);
+        iv = (ImageView)v1.findViewById(R.id.check_img);
+        System.out.println("got the imageview");
+        iv.setOnClickListener(new View.OnClickListener()
+        {        	
+        	
+            @Override
+            public void onClick(View v)
+            {	
+            	System.out.println("on click");
+            	Toast.makeText(InitialInterface.this, "click the image view", Toast.LENGTH_LONG).show();
+                //Fragment fragment = new BottomStartFrag();
+                //ft.add(R.id.bottomtoolbar, fragment);
+                //ft.addToBackStack(null); 
+                //ft.commit();
+                //System.out.println("BottomStartFragfromimage");
+            }
+        });
 	}
 
     // do nothing when click confirm
 	public void Confirm(View target)
 	{
 	}
-
+ 
+    public void CheckAddr(View target)
+    {
+        fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        Fragment newFragment = new BottomStartFrag();
+        ft.add(R.id.bottomtoolbar, newFragment);
+        ft.addToBackStack(null); 
+        ft.commit();
+        System.out.println("BottomStartFragfrombutton");
+    }
+    
     /*
     // show itineraries by left drawer when click a bottom button
 	public void ShowAllItineraries(View target)
@@ -162,15 +198,4 @@ public class InitialInterface extends Activity
     }
     */
     
-    public void CheckAddr(View target)
-    {
-    	fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        Fragment newFragment = new BottomStartFrag();
-        ft.add(R.id.bottomtoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
-        System.out.println("BottomStartFrag");
-    }
-	
 }

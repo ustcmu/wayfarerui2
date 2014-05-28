@@ -23,6 +23,7 @@
                 android:background      = "#ECF0F1"
                 android:textColor       = "#000000"
             />
+            <!--
             <ImageButton
                 android:id = "@+id/check_bt"
                 android:layout_width = "45dp"
@@ -32,7 +33,20 @@
                 android:background = "@drawable/check"
                 android:onClick = "CheckAddr"
                 />
+                -->
 
+            <ImageView
+                android:id = "@+id/check_img"
+                android:src = "@drawable/check"
+                android:scaleType = "centerInside"
+                android:background = "#FFFFFF"
+                android:layout_width = "45dp"
+                android:layout_height = "45dp"
+                android:layout_toRightOf = "@id/dest_addr"
+                android:layout_centerVertical = "true"
+                android:clickable = "true"
+                android:focusable = "true"
+                />    
             <ImageButton
                 android:id = "@+id/connect_button"
                 android:layout_width    = "45dp"

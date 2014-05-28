@@ -10,4 +10,6 @@
     <string name="button_ok">ok</string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+    <string name="waypoints">7 waypoints passed</string>
+    <string name="distance">2.7 km to go</string>
 </resources>

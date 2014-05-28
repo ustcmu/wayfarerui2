@@ -18,6 +18,13 @@
 			android:layout_height = "wrap_content">
 		</RelativeLayout>
 
+		<RelativeLayout
+			android:id = "@+id/bottominfo"
+			android:layout_width = "match_parent"
+			android:layout_height = "70dp"
+			android:layout_alignParentBottom = "true">
+		</RelativeLayout>
+		
 		<!-- this relativelayout is for bottombar fragments-->
 		<RelativeLayout
 			android:id = "@+id/bottomtoolbar"
@@ -27,11 +34,4 @@
 		>
 		</RelativeLayout>
 
-		<RelativeLayout
-			android:id = "@+id/bottominfo"
-			android:layout_width = "match_parent"
-			android:layout_height = "70dp"
-			android:layout_alignParentBottom = "true">
-
 </RelativeLayout>
-
