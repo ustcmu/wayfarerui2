@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottompause"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_bar"
+    
+    android:orientation="horizontal" >    
+
+        <ImageButton
+            android:id="@+id/info_bt2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/info" 
+            android:onClick="BottomInfo"/>
+
+        <ImageButton
+            android:id="@+id/cancel_bt2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/cancel"
+            android:onClick="BottomCancel" />
+
+        <ImageButton
+            android:id="@+id/pause_bt2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@id/cancel_bt2"
+            android:background="@drawable/pause"
+            android:onClick="BottomPause" />
+</RelativeLayout>
