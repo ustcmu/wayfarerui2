@@ -154,6 +154,7 @@ public class InitialInterface extends Activity
     
     public void BottomInfo(View target)
     {
+        System.out.println("enter BottomInfo");
         fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         if(fragmentManager.findFragmentById(R.id.bottominfo) == null)
@@ -168,6 +169,7 @@ public class InitialInterface extends Activity
         {
             Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
             ft.remove(rmfrag);
+            System.out.println("BottomInfoFrag clear");
         }
         
     }  
