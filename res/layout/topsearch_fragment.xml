@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width    = "match_parent"
-    android:layout_height   = "match_parent"
+    android:layout_height   = "65dp"
     android:orientation      = "vertical"
     >
 
@@ -12,61 +12,56 @@
         android:orientation      = "horizontal"
         android:background      = "@drawable/topmenu_color"
         >
-            <AutoCompleteTextView
-                android:id = "@+id/dest_addr"
-                android:layout_width    = "220dp"
-                android:layout_height   = "45dp"
-                android:layout_alignParentLeft = "true"
-                android:layout_margin   = "10dp"
-                android:layout_centerVertical = "true"
-                android:hint            = "@string/dest_addr"
-                android:background      = "#ECF0F1"
-                android:textColor       = "#000000"
-            />
-            <!--
-            <ImageButton
-                android:id = "@+id/check_bt"
-                android:layout_width = "45dp"
-                android:layout_height = "45dp"
-                android:layout_toRightOf = "@id/dest_addr"
-                android:layout_centerVertical = "true"
-                android:background = "@drawable/check"
-                android:onClick = "CheckAddr"
-                />
-                -->
-
-            <ImageView
-                android:id = "@+id/check_img"
-                android:src = "@drawable/check"
-                android:scaleType = "centerInside"
-                android:background = "#FFFFFF"
-                android:layout_width = "45dp"
-                android:layout_height = "45dp"
-                android:layout_toRightOf = "@id/dest_addr"
-                android:layout_centerVertical = "true"
-                android:clickable = "true"
-                android:focusable = "true"
-                />    
+            
+        
             <ImageButton
                 android:id = "@+id/connect_button"
-                android:layout_width    = "45dp"
-                android:layout_height   = "45dp"
+                android:layout_width    = "40dp"
+                android:layout_height   = "40dp"
                 android:layout_alignParentRight = "true"
                 android:layout_centerVertical = "true"
-                android:layout_margin      = "5dp"
-           
-                android:background      = "@drawable/connect_button"
+                android:layout_marginRight      = "10dp"
+                android:src      = "@drawable/connect_button"
+                android:scaleType="fitXY"
+                android:background="#e0000000"
+                android:onClick = "Connect"
             />
 
             <LinearLayout
-                android:layout_width = "10dp"
-                android:layout_height = "60dp"
-                android:layout_alignParentTop = "true"
-                android:layout_toLeftOf = "@id/connect_button"
-                android:layout_margin = "5dp"
-                android:background = "@color/blue"
-            ></LinearLayout>
-    
+                android:id="@+id/vertical_colorbar"
+                android:layout_width="3dp"
+                android:layout_height="55dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/connect_button"
+                android:background="@color/blue"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <ImageButton
+                android:id = "@+id/check_bt"
+                android:layout_width = "35dp"
+                android:layout_height = "35dp"
+                android:layout_toLeftOf="@id/vertical_colorbar"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/check"
+                android:scaleType="centerInside"
+                android:background = "#FFFFFF"
+                android:onClick = "CheckAddr"
+                />
+            <AutoCompleteTextView
+                android:id = "@+id/dest_addr"
+                android:layout_width    = "wrap_content"
+                android:layout_height   = "35dp"
+                android:layout_alignParentLeft = "true"
+                android:layout_toLeftOf="@id/check_bt"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical = "true"
+                android:hint            = "@string/dest_addr"
+                android:drawableLeft="@drawable/search_button"
+                android:background      = "#FFFFFF"
+                android:textColor       = "#000000"
+            />    
     </RelativeLayout>
 
     <LinearLayout

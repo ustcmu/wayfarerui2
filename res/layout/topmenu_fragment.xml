@@ -3,21 +3,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation		= "vertical"
 	android:layout_width	= "match_parent"
-	android:layout_height	= "match_parent"
+	android:layout_height	= "65dp"
 	>
 	<RelativeLayout 
 		android:orientation		= "horizontal"
 		android:layout_width	= "match_parent"
-		android:layout_height	= "wrap_content"
+		android:layout_height	= "55dp"
 		android:background		= "@drawable/topmenu_color"
 	>
  	<ImageButton
 		android:id						= "@+id/search"
-		android:layout_width			= "40dp"
-		android:layout_height			= "40dp"
+		android:layout_width			= "30dp"
+		android:layout_height			= "30dp"
+		android:layout_centerVertical="true"
 		android:layout_alignParentLeft	= "true" 		
-		android:layout_alignParentStart	= "true"
-		android:layout_marginLeft		= "60dp"
+		android:layout_marginLeft		= "60dp"		
 		android:background				= "@drawable/search_button"
 		android:onClick					= "Searchloc"
  	/>
@@ -34,21 +34,21 @@
 
  <!--this linearlayout is to realize a colorful divider-->
  	<LinearLayout
-		android:layout_width = "5dp"
-		android:layout_height = "50dp"
+		android:layout_width = "3dp"
+		android:layout_height = "55dp"
 		android:layout_centerInParent = "true"
 		android:background = "@color/blue"
  	></LinearLayout>
 
  	<ImageButton
-		android:id						= "@+id/view"
-		android:layout_width			= "40dp"
-		android:layout_height			= "40dp"		
+		android:id						= "@+id/connect"
+		android:layout_width			= "30dp"
+		android:layout_height			= "30dp"		
+		android:layout_centerVertical="true"
 		android:layout_alignParentRight	= "true"
-		android:layout_alignParentEnd	= "true" 
 		android:layout_marginRight		= "60dp"
 		android:background				= "@drawable/view_button"
-		android:onClick					= "Confirm"
+		android:onClick					= "Connect"
  	/> 
 	</RelativeLayout>
 

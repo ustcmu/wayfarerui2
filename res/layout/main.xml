@@ -9,6 +9,7 @@
     android:orientation = "vertical"
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
+    android:background="@drawable/googlemap"
 >
 
 		<!-- This RelayiveLayout is for toptoolbar fragments-->
@@ -18,20 +19,22 @@
 			android:layout_height = "wrap_content">
 		</RelativeLayout>
 
+		<!-- this relativelayout is for bottom info fragments-->
 		<RelativeLayout
 			android:id = "@+id/bottominfo"
 			android:layout_width = "match_parent"
-			android:layout_height = "70dp"
+			android:layout_height = "wrap_content"
 			android:layout_alignParentBottom = "true">
+
 		</RelativeLayout>
 		
-		<!-- this relativelayout is for bottombar fragments-->
+		<!-- this relativelayout is for bottom control bar fragments-->
 		<RelativeLayout
 			android:id = "@+id/bottomtoolbar"
 			android:layout_width="match_parent"
-			android:layout_height="70dp"
+			android:layout_height="wrap_content"
 			android:layout_above = "@id/bottominfo"	
 		>
 		</RelativeLayout>
-
 </RelativeLayout>
+

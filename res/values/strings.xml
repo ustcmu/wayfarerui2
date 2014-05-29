@@ -12,4 +12,5 @@
     <string name="drawer_close">close</string>
     <string name="waypoints">7 waypoints passed</string>
     <string name="distance">2.7 km to go</string>
+    <string name="connecting">Connecting...</string>
 </resources>
