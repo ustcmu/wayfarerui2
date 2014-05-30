@@ -5,21 +5,10 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
@@ -45,11 +34,10 @@ public class InitialInterface extends Activity
     private String[] mItineraries = {"Beijing", "SValley"};
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-    private ImageButton ib;
     private ActionBarDrawerToggle mDrawerToggle;
     private LayoutInflater inflater;
 
-    private ImageView iv;
+    private boolean is_closed_bottominfo = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -157,24 +145,25 @@ public class InitialInterface extends Activity
         System.out.println("enter BottomInfo");
         ft = fragmentManager.beginTransaction();
         System.out.println(fragmentManager.findFragmentById(R.id.bottominfo));
-        if(fragmentManager.findFragmentById(R.id.bottominfo) != null)
+        if(is_closed_bottominfo)
         {
-        	Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
-            ft.remove(rmfrag);
-            
-            ft.addToBackStack(null); 
-            ft.commit();
-            rmfrag.onDestroy();
-            System.out.println("BottomInfoFrag clear");
-            
-        }
-        else
-        {
-        	Fragment newFragment = new BottomInfoFrag();
+            Fragment newFragment = new BottomInfoFrag();
             ft.add(R.id.bottominfo, newFragment);
             ft.addToBackStack(null); 
             ft.commit();
             System.out.println("BottomInfoFrag create");
+
+            is_closed_bottominfo = false;
+        }
+        else
+        {
+        	Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
+            ft.remove(rmfrag);            
+            ft.addToBackStack(null); 
+            ft.commit();
+            System.out.println("BottomInfoFrag clear");
+
+            is_closed_bottominfo = true;
         }
         
     }  
@@ -185,19 +174,12 @@ public class InitialInterface extends Activity
         Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
         ft.remove(rmfragone);
         ft.addToBackStack(null); 
-        ft.commit();
-        
         System.out.println("rm bottomtoolbar");
-        /*
+
         Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
         ft.remove(rmfragtwo);
-        ft.addToBackStack(null); 
         ft.commit();
         System.out.println("rm bottominfo");
-        
-        if(fragmentManager.findFragmentById(R.id.bottominfo) == null)
-        	System.out.println("rm succeed");
-        */
         /*
         if(fragmentManager.findFragmentById(R.id.bottominfo) != null)
         {
