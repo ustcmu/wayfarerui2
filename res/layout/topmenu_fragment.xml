@@ -9,7 +9,7 @@
 		android:orientation		= "horizontal"
 		android:layout_width	= "match_parent"
 		android:layout_height	= "55dp"
-		android:background		= "@drawable/topmenu_color"
+		android:background		= "@color/black"
 	>
  	<ImageButton
 		android:id						= "@+id/search"

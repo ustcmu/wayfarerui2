@@ -10,7 +10,7 @@
         android:layout_width    = "match_parent"
         android:layout_height   = "wrap_content"
         android:orientation      = "horizontal"
-        android:background      = "@drawable/topmenu_color"
+        android:background      = "@color/black"
         >
             
         
@@ -46,7 +46,7 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/check"
                 android:scaleType="centerInside"
-                android:background = "#FFFFFF"
+                android:background = "@drawable/top_button_shape"
                 android:onClick = "CheckAddr"
                 />
             <AutoCompleteTextView
@@ -59,7 +59,7 @@
                 android:layout_centerVertical = "true"
                 android:hint            = "@string/dest_addr"
                 android:drawableLeft="@drawable/search_button"
-                android:background      = "#FFFFFF"
+                android:background      = "@drawable/top_text_shape"
                 android:textColor       = "#000000"
             />    
     </RelativeLayout>

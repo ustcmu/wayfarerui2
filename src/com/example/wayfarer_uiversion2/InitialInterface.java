@@ -40,6 +40,7 @@ public class InitialInterface extends Activity
 {
 	
     private FragmentManager fragmentManager = null;
+    private FragmentTransaction ft;
 
     private String[] mItineraries = {"Beijing", "SValley"};
     private DrawerLayout mDrawerLayout;
@@ -57,7 +58,7 @@ public class InitialInterface extends Activity
 		setContentView(R.layout.main);
 		
 		fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         InitialFrag newFragment = new InitialFrag();
         ft.add(R.id.toptoolbar, newFragment);
         System.out.println("InitialFrag");
@@ -103,8 +104,7 @@ public class InitialInterface extends Activity
     // replace frag when click search
 	public void Searchloc(View target)
 	{
-		fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         Fragment newFragment = new SearchFrag();
         ft.replace(R.id.toptoolbar, newFragment);
         ft.addToBackStack(null); 
@@ -132,8 +132,7 @@ public class InitialInterface extends Activity
     // do nothing when click connect button(right of the top)
 	public void Connect(View target)
 	{
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         Fragment newFragment = new ConnectingFrag();
         ft.replace(R.id.toptoolbar, newFragment);
         ft.addToBackStack(null); 
@@ -143,8 +142,7 @@ public class InitialInterface extends Activity
  
     public void CheckAddr(View target)
     {
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomStartFrag();
         ft.add(R.id.bottomtoolbar, newFragment);
         ft.addToBackStack(null); 
@@ -152,44 +150,55 @@ public class InitialInterface extends Activity
         System.out.println("BottomStartFragfrombutton");
     }
     
+    // TODO clear bottominfofrag when second click failed
+    // why findFragmentById still not equal to null after destroy frag?
     public void BottomInfo(View target)
     {
         System.out.println("enter BottomInfo");
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        if(fragmentManager.findFragmentById(R.id.bottominfo) == null)
+        ft = fragmentManager.beginTransaction();
+        System.out.println(fragmentManager.findFragmentById(R.id.bottominfo));
+        if(fragmentManager.findFragmentById(R.id.bottominfo) != null)
         {
-            Fragment newFragment = new BottomInfoFrag();
+        	Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
+            ft.remove(rmfrag);
+            
+            ft.addToBackStack(null); 
+            ft.commit();
+            rmfrag.onDestroy();
+            System.out.println("BottomInfoFrag clear");
+            
+        }
+        else
+        {
+        	Fragment newFragment = new BottomInfoFrag();
             ft.add(R.id.bottominfo, newFragment);
             ft.addToBackStack(null); 
             ft.commit();
             System.out.println("BottomInfoFrag create");
-        }
-        else
-        {
-            Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
-            ft.remove(rmfrag);
-            System.out.println("BottomInfoFrag clear");
         }
         
     }  
 
     public void BottomCancel(View target)
     {
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
         ft.remove(rmfragone);
-        System.out.println("rm bottomtoobar");
+        ft.addToBackStack(null); 
         ft.commit();
         
+        System.out.println("rm bottomtoolbar");
+        /*
         Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
         ft.remove(rmfragtwo);
+        ft.addToBackStack(null); 
+        ft.commit();
         System.out.println("rm bottominfo");
         
         if(fragmentManager.findFragmentById(R.id.bottominfo) == null)
         	System.out.println("rm succeed");
-      /*
+        */
+        /*
         if(fragmentManager.findFragmentById(R.id.bottominfo) != null)
         {
         	System.out.println("enter loop");
@@ -203,8 +212,7 @@ public class InitialInterface extends Activity
 
     public void BottomPlay(View target)
     {
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomPauseFrag();
         ft.replace(R.id.bottomtoolbar, newFragment);
         ft.addToBackStack(null); 
@@ -214,8 +222,7 @@ public class InitialInterface extends Activity
 
     public void BottomPause(View target)
     {
-        fragmentManager = getFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
+    	ft = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomStartFrag();
         ft.replace(R.id.bottomtoolbar, newFragment);
         ft.addToBackStack(null); 
