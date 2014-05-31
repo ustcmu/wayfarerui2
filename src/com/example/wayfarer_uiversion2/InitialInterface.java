@@ -33,10 +33,9 @@ public class InitialInterface extends Activity
     private FragmentManager fragmentManager = null;
     private FragmentTransaction fragmentTransaction;
 
-    private String[] mItineraries = {"Beijing", "SValley"};
+    private String[] mItineraries = {"Setting"};
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-    private ActionBarDrawerToggle mDrawerToggle;
     private LayoutInflater inflater;
 
     private boolean isClosedBottominfo = true;
@@ -65,30 +64,6 @@ public class InitialInterface extends Activity
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mItineraries));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        
-
-        /*
-        // use actionbar to control drawer list
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-
-		mDrawerToggle = new ActionBarDrawerToggle(
-                this,                 
-                mDrawerLayout,         
-                R.drawable.ic_drawer,
-                R.string.drawer_open,
-                R.string.drawer_close) 
-           {            	
-            	public void onDrawerClosed(View view) {
-            	    super.onDrawerClosed(view);
-            	}
-     			
-     			public void onDrawerOpened(View drawerView) {
-     	    		super.onDrawerOpened(drawerView);
-        		}
-        	};
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
-        */
 	}
 	
     // replace frag when click search
@@ -202,15 +177,14 @@ public class InitialInterface extends Activity
         fragmentTransaction.commit();
         System.out.println("BottomStartFrag again");
     }
-    /*
-    // show itineraries by left drawer when click a bottom button
-	public void ShowAllItineraries(View target)
+    
+    // show settings by left drawer when click a bottom button
+	public void ShowDrawer(View target)
 	{
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mDrawerLayout.openDrawer(mDrawerList);
 	}
-	*/
 
     // drawer list click listener
     private class DrawerItemClickListener implements ListView.OnItemClickListener 
