@@ -7,4 +7,7 @@
     <dimen name="top_layout_height">67dp</dimen>
     <dimen name="top_imagebutton">30dp</dimen>
     <dimen name="top_textview">40dp</dimen>
+    <dimen name="bottom_smallbutton_control">25dp</dimen>
+    <dimen name="bottom_smallbutton_info">45dp</dimen>
+
 </resources>

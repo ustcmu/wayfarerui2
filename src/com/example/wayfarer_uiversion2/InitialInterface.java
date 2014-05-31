@@ -31,7 +31,7 @@ public class InitialInterface extends Activity
 {
 	
     private FragmentManager fragmentManager = null;
-    private FragmentTransaction ft;
+    private FragmentTransaction fragmentTransaction;
 
     private String[] mItineraries = {"Beijing", "SValley"};
     private DrawerLayout mDrawerLayout;
@@ -39,7 +39,7 @@ public class InitialInterface extends Activity
     private ActionBarDrawerToggle mDrawerToggle;
     private LayoutInflater inflater;
 
-    private boolean is_closed_bottominfo = true;
+    private boolean isClosedBottominfo = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -48,11 +48,11 @@ public class InitialInterface extends Activity
 		setContentView(R.layout.main);
 		
 		fragmentManager = getFragmentManager();
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         InitialFrag newFragment = new InitialFrag();
-        ft.add(R.id.toptoolbar, newFragment);
+        fragmentTransaction.add(R.id.toptoolbar, newFragment);
         System.out.println("InitialFrag");
-        ft.commit();
+        fragmentTransaction.commit();
 
         
         // initial config for left drawer
@@ -94,22 +94,22 @@ public class InitialInterface extends Activity
     // replace frag when click search
 	public void Searchloc(View target)
 	{
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new SearchFrag();
-        ft.replace(R.id.toptoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
+        fragmentTransaction.replace(R.id.toptoolbar, newFragment);
+        fragmentTransaction.addToBackStack(null); 
+        fragmentTransaction.commit();
         System.out.println("SearchFrag");    
 	}
 
     // do nothing when click connect button(right of the top)
 	public void Connect(View target)
 	{
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new ConnectingFrag();
-        ft.replace(R.id.toptoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
+        fragmentTransaction.replace(R.id.toptoolbar, newFragment);
+        fragmentTransaction.addToBackStack(null); 
+        fragmentTransaction.commit();
         System.out.println("ConnectingFrag");
 
         Timer timer = new Timer();
@@ -118,10 +118,10 @@ public class InitialInterface extends Activity
             @Override
             public void run()
             {
-                ft = fragmentManager.beginTransaction();
+                fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment newFragment = new TopmenuOnlineFrag();
-                ft.replace(R.id.toptoolbar, newFragment);
-                ft.commit();
+                fragmentTransaction.replace(R.id.toptoolbar, newFragment);
+                fragmentTransaction.commit();
                 System.out.println("TopmenuOnlineFrag");
             }
         };
@@ -131,11 +131,11 @@ public class InitialInterface extends Activity
  
     public void CheckAddr(View target)
     {
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomStartFrag();
-        ft.add(R.id.bottomtoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
+        fragmentTransaction.add(R.id.bottomtoolbar, newFragment);
+        fragmentTransaction.addToBackStack(null); 
+        fragmentTransaction.commit();
         System.out.println("BottomStartFragfrombutton");
     }
     
@@ -144,62 +144,62 @@ public class InitialInterface extends Activity
     public void BottomInfo(View target)
     {
         System.out.println("enter BottomInfo");
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         System.out.println(fragmentManager.findFragmentById(R.id.bottominfo));
-        if(is_closed_bottominfo)
+        if(isClosedBottominfo)
         {
             Fragment newFragment = new BottomInfoFrag();
-            ft.add(R.id.bottominfo, newFragment);
-            ft.addToBackStack(null); 
-            ft.commit();
+            fragmentTransaction.add(R.id.bottominfo, newFragment);
+            fragmentTransaction.addToBackStack(null); 
+            fragmentTransaction.commit();
             System.out.println("BottomInfoFrag create");
 
-            is_closed_bottominfo = false;
+            isClosedBottominfo = false;
         }
         else
         {
         	Fragment rmfrag = fragmentManager.findFragmentById(R.id.bottominfo);
-            ft.remove(rmfrag);            
-            ft.addToBackStack(null); 
-            ft.commit();
+            fragmentTransaction.remove(rmfrag);            
+            fragmentTransaction.addToBackStack(null); 
+            fragmentTransaction.commit();
             System.out.println("BottomInfoFrag clear");
 
-            is_closed_bottominfo = true;
+            isClosedBottominfo = true;
         }
         
     }  
 
     public void BottomCancel(View target)
     {
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
-        ft.remove(rmfragone);
-        ft.addToBackStack(null); 
+        fragmentTransaction.remove(rmfragone);
+        fragmentTransaction.addToBackStack(null); 
         System.out.println("rm bottomtoolbar");
 
         Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
-        ft.remove(rmfragtwo);
-        ft.commit();
+        fragmentTransaction.remove(rmfragtwo);
+        fragmentTransaction.commit();
         System.out.println("rm bottominfo");
     }
 
     public void BottomPlay(View target)
     {
-        ft = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomPauseFrag();
-        ft.replace(R.id.bottomtoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
+        fragmentTransaction.replace(R.id.bottomtoolbar, newFragment);
+        fragmentTransaction.addToBackStack(null); 
+        fragmentTransaction.commit();
         System.out.println("BottomPauseFrag");
     }
 
     public void BottomPause(View target)
     {
-    	ft = fragmentManager.beginTransaction();
+    	fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomStartFrag();
-        ft.replace(R.id.bottomtoolbar, newFragment);
-        ft.addToBackStack(null); 
-        ft.commit();
+        fragmentTransaction.replace(R.id.bottomtoolbar, newFragment);
+        fragmentTransaction.addToBackStack(null); 
+        fragmentTransaction.commit();
         System.out.println("BottomStartFrag again");
     }
     /*

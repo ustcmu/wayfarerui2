@@ -18,8 +18,8 @@
 
 	<ImageView
 	    android:id="@+id/waypoints_img"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
+	    android:layout_width="@dimen/bottom_smallbutton_info"
+	    android:layout_height="@dimen/bottom_smallbutton_info"
 	    android:layout_alignParentLeft="true"
 	    android:layout_marginLeft="20dp"
 	    android:layout_centerVertical="true"
@@ -28,10 +28,10 @@
 	<TextView
 		android:id = "@+id/waypoints_passed"
 		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content"
+		android:layout_height = "@dimen/bottom_smallbutton_info"
 		android:layout_centerVertical="true"
 	    android:layout_toRightOf="@id/waypoints_img"
-	    android:layout_margin="10dp"
+	    android:layout_margin="20dp"
 		android:text = "@string/waypoints"
 	/>
 	</RelativeLayout>
@@ -46,8 +46,8 @@
 
 	    <ImageView
 	        android:id="@+id/distance_img"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="@dimen/bottom_smallbutton_info"
+	        android:layout_height="@dimen/bottom_smallbutton_info"
 	        android:layout_alignParentLeft="true"
 	        android:layout_marginLeft="20dp"
 	        android:layout_centerVertical="true"
@@ -57,9 +57,9 @@
 	    <TextView
 	        android:id="@+id/distance_tv"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_height="@dimen/bottom_smallbutton_info"
 	        android:layout_centerVertical="true"
-	        android:layout_margin="10dp"
+	        android:layout_margin="20dp"
 	        android:layout_toRightOf="@id/distance_img"
 	        android:text="@string/distance" />
 	</RelativeLayout>

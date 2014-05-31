@@ -10,8 +10,8 @@
 
         <ImageButton
             android:id="@+id/info_bt"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/bottom_smallbutton_control"
+            android:layout_height="@dimen/bottom_smallbutton_control"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="63dp"
@@ -22,8 +22,8 @@
 
         <ImageButton
             android:id="@+id/cancel_bt"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/bottom_smallbutton_control"
+            android:layout_height="@dimen/bottom_smallbutton_control"
             android:layout_alignParentRight="true"
             android:layout_marginRight="25dp"
             android:layout_marginTop="63dp"
