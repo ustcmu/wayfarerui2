@@ -7,17 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Description: after click right connect button, show app's connecting w.d.
- * refer on mock page 4
+ * Description: almost same as Initial Frag, refer on mock page 5
+ * note that right button shows connected
  **/
-public class ConnectingFrag extends Fragment
+public class TopmenuOnlineFrag extends Fragment
 {
-	public ConnectingFrag(){}
+	public TopmenuOnlineFrag(){}
 		
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		return inflater.inflate(R.layout.top_connecting_fragment, container, false);
+		return inflater.inflate(R.layout.topmenu_online_fragment, container, false);
 	}
 
 	

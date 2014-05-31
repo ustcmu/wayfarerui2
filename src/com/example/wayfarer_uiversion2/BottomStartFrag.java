@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Description: shows bottombar, for control(start navi), refer on mock 9
+ **/
 public class BottomStartFrag extends Fragment
 {
 	public BottomStartFrag(){}

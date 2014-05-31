@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Description: shows bottombar, for control(pause navi), refer on mock 10
+ **/
 public class BottomPauseFrag extends Fragment
 {
 	public BottomPauseFrag(){}

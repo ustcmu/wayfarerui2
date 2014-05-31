@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ConnectingFrag"
 	android:orientation		= "vertical"
 	android:layout_width	= "match_parent"
-	android:layout_height	= "65dp"
+	android:layout_height	= "@dimen/top_layout_height"
 	android:background      = "@color/black"
 	>
 
@@ -17,11 +19,11 @@
  		android:text="@string/connecting"
  	/>
 
-	<LinearLayout
+	<ImageView
 	android:layout_width = "match_parent"
-	android:layout_height = "10dp"
+	android:layout_height = "@dimen/horizontal_colorbar_height"
 	android:layout_alignParentBottom="true"
 	android:background = "@color/blue"
- 	></LinearLayout>
+ 	></ImageView>
 
 </RelativeLayout>

@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	tools:context=".InitialFrag"
+	tools:context=".TopmenuOnlineFrag"
 	android:orientation		= "vertical"
 	android:layout_width	= "match_parent"
 	android:layout_height	= "@dimen/top_layout_height"
@@ -39,7 +39,7 @@
 		android:layout_centerVertical="true"
 		android:layout_alignParentRight	= "true"
 		android:layout_marginRight		= "65dp"
-		android:background				= "@drawable/disconnected"
+		android:background				= "@drawable/connected"
 		android:onClick					= "Connect"
  	/> 
 	</RelativeLayout>

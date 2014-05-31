@@ -1,5 +1,7 @@
 package com.example.wayfarer_uiversion2;
 
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -52,7 +54,7 @@ public class InitialInterface extends Activity
         System.out.println("InitialFrag");
         ft.commit();
 
-        /*
+        
         // initial config for left drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -63,7 +65,7 @@ public class InitialInterface extends Activity
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mItineraries));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        */
+        
 
         /*
         // use actionbar to control drawer list
@@ -97,24 +99,7 @@ public class InitialInterface extends Activity
         ft.replace(R.id.toptoolbar, newFragment);
         ft.addToBackStack(null); 
         ft.commit();
-        System.out.println("SearchFrag");     
-
-        /*
-        inflater = getLayoutInflater();
-		View v1 = inflater.inflate(R.layout.topsearch_fragment, null);
-        iv = (ImageView)v1.findViewById(R.id.check_img);
-        System.out.println("got the imageview");
-        iv.setOnClickListener(new View.OnClickListener()
-        {        	
-        	
-            @Override
-            public void onClick(View v)
-            {	
-            	System.out.println("on click");
-            	Toast.makeText(InitialInterface.this, "click the image view", Toast.LENGTH_LONG).show();
-            }
-        });
-        */
+        System.out.println("SearchFrag");    
 	}
 
     // do nothing when click connect button(right of the top)
@@ -126,6 +111,22 @@ public class InitialInterface extends Activity
         ft.addToBackStack(null); 
         ft.commit();
         System.out.println("ConnectingFrag");
+
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                ft = fragmentManager.beginTransaction();
+                Fragment newFragment = new TopmenuOnlineFrag();
+                ft.replace(R.id.toptoolbar, newFragment);
+                ft.commit();
+                System.out.println("TopmenuOnlineFrag");
+            }
+        };
+
+        timer.schedule(task, 1000*3);
 	}
  
     public void CheckAddr(View target)
@@ -180,16 +181,6 @@ public class InitialInterface extends Activity
         ft.remove(rmfragtwo);
         ft.commit();
         System.out.println("rm bottominfo");
-        /*
-        if(fragmentManager.findFragmentById(R.id.bottominfo) != null)
-        {
-        	System.out.println("enter loop");
-            Fragment fragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
-            ft.remove(fragtwo);
-            System.out.println("rm bottominfo");
-            ft.commit();
-        }
-        */
     }
 
     public void BottomPlay(View target)
@@ -221,35 +212,6 @@ public class InitialInterface extends Activity
 	}
 	*/
 
-    /*
-    // enable drawer list by top actionbar
-	public boolean onOptionsItemSelected(MenuItem item) {
-         // The action bar home/up action should open or close the drawer.
-         // ActionBarDrawerToggle will take care of this.
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    
-
-    // write for top actionbar/ toggle
-	@Override  
-	protected void onPostCreate(Bundle savedInstanceState) {
-	        super.onPostCreate(savedInstanceState);
-	        // Sync the toggle state after onRestoreInstanceState has occurred.
-	        mDrawerToggle.syncState();
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-	    	super.onConfigurationChanged(newConfig);
-	        // Pass any configuration change to the drawer toggls
-	        mDrawerToggle.onConfigurationChanged(newConfig);
-	}
-    */
-    
-    /*
     // drawer list click listener
     private class DrawerItemClickListener implements ListView.OnItemClickListener 
     {
@@ -264,6 +226,4 @@ public class InitialInterface extends Activity
         // update main content in map
         // TODO
     }
-    */
-    
 }

@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Description: at bottom, show info(waypoints and distance) , refer on mock 11
+ **/
 public class BottomInfoFrag extends Fragment
 {
 	public BottomInfoFrag(){}
