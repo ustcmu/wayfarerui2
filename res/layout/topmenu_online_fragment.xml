@@ -2,7 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	tools:context=".TopmenuOnlineFrag"
+	tools:context=".InitialFrag"
 	android:orientation		= "vertical"
 	android:layout_width	= "match_parent"
 	android:layout_height	= "@dimen/top_layout_height"
@@ -13,35 +13,48 @@
 		android:layout_height	= "55dp"
 		android:background		= "@color/black"
 	>
- 	<ImageButton
-		android:id						= "@+id/search"
-		android:layout_width			= "@dimen/top_imagebutton"
-		android:layout_height			= "@dimen/top_imagebutton"
-		android:layout_centerVertical="true"
-		android:layout_alignParentLeft	= "true" 		
-		android:layout_marginLeft		= "65dp"		
-		android:background				= "@drawable/search_button"
-		android:onClick					= "Searchloc"
- 	/>
 
- <!-- to realize a colorful divider-->
- 	<ImageView
-		android:layout_width = "3dp"
-		android:layout_height = "55dp"
-		android:layout_centerInParent = "true"
-		android:background = "@color/blue"
- 	></ImageView>
+		<!-- to realize a colorful divider-->
+		<ImageView
+			android:id = "@+id/vertical_colorbar_topmenu"
+			android:layout_width = "3dp"
+			android:layout_height = "55dp"
+			android:layout_centerInParent = "true"
+			android:background = "@color/blue"
+ 		></ImageView>
+		
+		<RelativeLayout
+			android:layout_alignParentLeft = "true"
+			android:layout_toLeftOf = "@id/vertical_colorbar_topmenu"
+			android:layout_height = "match_parent"
+			android:layout_width = "match_parent"
+		>
+ 			<ImageButton
+				android:id						= "@+id/search"
+				android:layout_width			= "@dimen/top_imagebutton"
+				android:layout_height			= "@dimen/top_imagebutton"
+				android:layout_centerInParent="true"
+				android:background				= "@drawable/search_button"
+				android:onClick					= "Searchloc"
+ 			/>
+ 		</RelativeLayout>
 
- 	<ImageButton
-		android:id						= "@+id/connect"
-		android:layout_width			= "@dimen/top_imagebutton"
-		android:layout_height			= "@dimen/top_imagebutton"		
-		android:layout_centerVertical="true"
-		android:layout_alignParentRight	= "true"
-		android:layout_marginRight		= "65dp"
-		android:background				= "@drawable/connected"
-		android:onClick					= "Connect"
- 	/> 
+ 		<RelativeLayout
+			android:layout_alignParentRight = "true"
+			android:layout_toRightOf = "@id/vertical_colorbar_topmenu"
+			android:layout_height = "match_parent"
+			android:layout_width = "match_parent"
+		>
+ 			<ImageButton
+				android:id						= "@+id/connect"
+				android:layout_width			= "@dimen/top_imagebutton"
+				android:layout_height			= "@dimen/top_imagebutton"		
+				android:layout_centerInParent   		= "true"
+				android:background				= "@drawable/connected"
+				android:onClick					= "Connect"
+ 			/> 
+ 		</RelativeLayout>
+	
 	</RelativeLayout>
 
 	<ImageView

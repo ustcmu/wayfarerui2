@@ -197,7 +197,17 @@ public class InitialInterface extends Activity
 
     private void selectItem(int position) 
     {
-        // update main content in map
-        // TODO
+        if(position == 1)
+        {
+           // DrawerDidlogShow();
+        }
     }
+/* TODO
+    public void DrawerDidlogShow()
+    {
+        PromptDialogFragment pdf = PromptDialogFragment.newInstance("This is a Prompt Dialog!");
+        FragmentTransaction ft = getFragmentManager().beginTransaction(); 
+        pdf.show(ft, PROMPT_DIALOG_TAG); 
+    }
+    */
 }
