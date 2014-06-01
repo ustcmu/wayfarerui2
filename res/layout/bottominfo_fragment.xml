@@ -5,14 +5,14 @@
 	tools:context=".BottomInfoFrag"
 	android:orientation		= "vertical"
 	android:layout_width	= "match_parent"
-	android:layout_height	= "120dp"
+	android:layout_height	= "150dp"
 	android:background		= "@color/black"
 	>
 
 	<RelativeLayout
 		android:orientation = "horizontal"
 		android:layout_width = "match_parent"
-		android:layout_height = "60dp"
+		android:layout_height = "75dp"
 		android:layout_marginTop="0dp"
 	>
 
@@ -28,17 +28,18 @@
 	<TextView
 		android:id = "@+id/waypoints_passed"
 		android:layout_width = "wrap_content"
-		android:layout_height = "@dimen/bottom_smallbutton_info"
+		android:layout_height = "wrap_content"
 		android:layout_centerVertical="true"
 	    android:layout_toRightOf="@id/waypoints_img"
 	    android:layout_margin="20dp"
+	    android:textSize="22sp"
 		android:text = "@string/waypoints"
 	/>
 	</RelativeLayout>
 
 	<RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="60dp"
+	    android:layout_height="75dp"
 	    android:layout_alignParentBottom="true"
 	    android:layout_alignParentLeft="true"
 	    android:layout_marginBottom="0dp"
@@ -57,11 +58,12 @@
 	    <TextView
 	        android:id="@+id/distance_tv"
 	        android:layout_width="wrap_content"
-	        android:layout_height="@dimen/bottom_smallbutton_info"
+	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
 	        android:layout_margin="20dp"
 	        android:layout_toRightOf="@id/distance_img"
-	        android:text="@string/distance" />
+	        android:text="@string/distance"
+	  		android:textSize="22sp" />
 	</RelativeLayout>
 
 </RelativeLayout>

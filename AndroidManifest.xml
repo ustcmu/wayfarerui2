@@ -25,7 +25,12 @@
         <activity
             android:name="com.example.wayfarer_uiversion2.InitialInterface"
             android:label="@string/app_name">
-        </activity>  
+        </activity> 
+
+         <activity
+            android:name="com.example.wayfarer_uiversion2.DrawerSetting"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

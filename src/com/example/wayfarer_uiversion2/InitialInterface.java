@@ -4,21 +4,28 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 /**
@@ -39,6 +46,8 @@ public class InitialInterface extends Activity
     private LayoutInflater inflater;
 
     private boolean isClosedBottominfo = true;
+
+    public final static String DRAWER_SETTING_TAG = "DRAWER_SETTING_TAG";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -106,11 +115,21 @@ public class InitialInterface extends Activity
  
     public void CheckAddr(View target)
     {
+    	// To close the keyboard automatically.
+        AutoCompleteTextView inputLocation = (AutoCompleteTextView)findViewById(R.id.dest_addr);
+    	InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE); 
+    	imm.hideSoftInputFromWindow(inputLocation.getWindowToken(), 0);
+        
         fragmentTransaction = fragmentManager.beginTransaction();
         Fragment newFragment = new BottomStartFrag();
         fragmentTransaction.add(R.id.bottomtoolbar, newFragment);
         fragmentTransaction.addToBackStack(null); 
         fragmentTransaction.commit();
+        
+        // Change background pic.
+        RelativeLayout toChangeBackground = (RelativeLayout)findViewById(R.id.total);
+        toChangeBackground.setBackgroundResource(R.drawable.googlemapwithicon);
+
         System.out.println("BottomStartFragfrombutton");
     }
     
@@ -153,9 +172,18 @@ public class InitialInterface extends Activity
         System.out.println("rm bottomtoolbar");
 
         Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
+        if(rmfragtwo==null)
+        {
+            System.out.println("rm fragtwo null");
+            fragmentTransaction.commit();
+        }
         fragmentTransaction.remove(rmfragtwo);
         fragmentTransaction.commit();
         System.out.println("rm bottominfo");
+
+        // Change background pic.
+        RelativeLayout toChangeBackground = (RelativeLayout)findViewById(R.id.total);
+        toChangeBackground.setBackgroundResource(R.drawable.googlemap);
     }
 
     public void BottomPlay(View target)
@@ -192,22 +220,48 @@ public class InitialInterface extends Activity
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
+            System.out.println("drawer onitemclick");
         }
     }
 
     private void selectItem(int position) 
     {
-        if(position == 1)
-        {
-           // DrawerDidlogShow();
-        }
+     //   DrawerDialogShow();
+        
+        System.out.println("drawer selectItem");
+
+        // It should be startActivityForResult. I'll improve later.
+        Intent intent = new Intent(this, DrawerSetting.class);
+        String courier = "drawer setting";
+        intent.putExtra("listen", courier);
+        startActivityForResult(intent, 0);
     }
-/* TODO
-    public void DrawerDidlogShow()
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        PromptDialogFragment pdf = PromptDialogFragment.newInstance("This is a Prompt Dialog!");
+        /*
+        switch(resultCode)
+        {
+            case RESULT_OK:
+                Bundle b = data.getExtras();  
+                String str=b.getString("listen");
+                // do nothing
+                break;
+            default:
+                break;
+        }
+        */
+    }
+
+
+
+    /*
+    public void DrawerDialogShow()
+    {
+        System.out.println("DrawerDialogShow");
+        DrawerDialogFragment pdf = DrawerDialogFragment.newInstance("settings");
         FragmentTransaction ft = getFragmentManager().beginTransaction(); 
-        pdf.show(ft, PROMPT_DIALOG_TAG); 
+        pdf.show(ft, DRAWER_SETTING_TAG); 
     }
     */
 }

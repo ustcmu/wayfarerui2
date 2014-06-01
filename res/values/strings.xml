@@ -13,4 +13,5 @@
     <string name="waypoints">7 waypoints passed</string>
     <string name="distance">2.7 km to go...</string>
     <string name="connecting">Connecting...</string>
+    <string name="setting">Enter your bluetooth address</string>
 </resources>

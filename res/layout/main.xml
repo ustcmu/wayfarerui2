@@ -9,6 +9,7 @@
     android:layout_width    ="match_parent"
     android:layout_height   ="match_parent">
 <RelativeLayout
+    android:id              = "@+id/total"
     android:orientation     = "vertical"
     android:layout_width    = "match_parent"
     android:layout_height   = "match_parent"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/bottomtoolbar"
             android:layout_alignParentLeft="true"
-            android:layout_marginBottom="-15dp"
+            android:layout_marginBottom="0dp"
             android:src="@drawable/ic_drawer"
             android:onClick="ShowDrawer"
         />
@@ -57,7 +58,7 @@
 
 <!-- The drawer -->
     <ListView android:id="@+id/left_drawer"
-        android:layout_width="280dp"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"

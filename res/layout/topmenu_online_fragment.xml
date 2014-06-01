@@ -10,7 +10,7 @@
 	<RelativeLayout 
 		android:orientation		= "horizontal"
 		android:layout_width	= "match_parent"
-		android:layout_height	= "55dp"
+		android:layout_height	= "80dp"
 		android:background		= "@color/black"
 	>
 
@@ -18,7 +18,7 @@
 		<ImageView
 			android:id = "@+id/vertical_colorbar_topmenu"
 			android:layout_width = "3dp"
-			android:layout_height = "55dp"
+			android:layout_height = "80dp"
 			android:layout_centerInParent = "true"
 			android:background = "@color/blue"
  		></ImageView>

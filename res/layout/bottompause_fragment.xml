@@ -4,35 +4,34 @@
     tools:context=".BottomPauseFrag"
     android:id="@+id/bottompause"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
+    android:layout_height="130dp"
     android:background="@drawable/bottom_bar"
-    
     android:orientation="horizontal" >    
 
         <ImageButton
             android:id="@+id/info_bt2"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/bottom_smallbutton_control"
+            android:layout_height="@dimen/bottom_smallbutton_control"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="63dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/info" 
             android:onClick="BottomInfo"/>
 
         <ImageButton
             android:id="@+id/cancel_bt2"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/bottom_smallbutton_control"
+            android:layout_height="@dimen/bottom_smallbutton_control"
             android:layout_alignParentRight="true"
             android:layout_marginRight="25dp"
-            android:layout_marginTop="63dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/cancel"
             android:onClick="BottomCancel" />
 
         <ImageButton
             android:id="@+id/pause_bt2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_centerHorizontal="true"
             android:layout_alignBottom="@id/cancel_bt2"
             android:background="@drawable/pause"

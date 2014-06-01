@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".DrawerSetting"
+	android:orientation		= "vertical"
+	android:layout_width	= "match_parent"
+	android:layout_height	= "match_parent"
+	android:background = "#FFFFFF"
+	>
+
+	<TextView
+		android:id="@+id/toptext_setting"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/setting_height"
+		android:text="@string/setting"
+		android:textSize="22sp"
+		android:textColor="@color/blue"
+	/>
+	<ImageView
+		android:id="@+id/img_setting"
+		android:layout_width="match_parent"
+		android:layout_height="6dp"
+		android:layout_below="@id/toptext_setting"
+		android:background="@color/blue"
+	/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/setting_height"
+		android:layout_below="@id/img_setting"
+	>
+		<ImageButton
+            android:id = "@+id/check_bt_setting"
+            android:layout_width = "@dimen/setting_height"
+            android:layout_height = "@dimen/setting_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/check"
+            android:scaleType="centerInside"
+            android:background = "#FFF"
+            android:onClick = "CheckSetting"
+        />
+		<EditText android:id="@+id/input_text"
+			android:layout_toLeftOf="@id/check_bt_setting"
+        	android:layout_width="match_parent"
+        	android:layout_height="@dimen/setting_height"
+       	 	android:scrollHorizontally="true"
+        	android:textAppearance="?android:attr/textAppearanceMedium"
+        />
+   	</RelativeLayout>
+
+</RelativeLayout>
