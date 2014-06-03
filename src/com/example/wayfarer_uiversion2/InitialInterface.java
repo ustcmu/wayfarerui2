@@ -166,24 +166,29 @@ public class InitialInterface extends Activity
     public void BottomCancel(View target)
     {
         fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
-        fragmentTransaction.remove(rmfragone);
-        fragmentTransaction.addToBackStack(null); 
-        System.out.println("rm bottomtoolbar");
-
-        Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
-        if(rmfragtwo==null)
+        
+        if(fragmentManager.findFragmentById(R.id.bottominfo)==null)
         {
             System.out.println("rm fragtwo null");
+            Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
+            fragmentTransaction.remove(rmfragone);
+            //fragmentTransaction.addToBackStack(null); 
             fragmentTransaction.commit();
         }
-        fragmentTransaction.remove(rmfragtwo);
-        fragmentTransaction.commit();
-        System.out.println("rm bottominfo");
-
+        else
+        {
+            Fragment rmfragone = fragmentManager.findFragmentById(R.id.bottomtoolbar);
+            fragmentTransaction.remove(rmfragone);
+            Fragment rmfragtwo = fragmentManager.findFragmentById(R.id.bottominfo);
+            fragmentTransaction.remove(rmfragtwo);
+            fragmentTransaction.commit();
+            System.out.println("rm bottominfo");
+        }
         // Change background pic.
         RelativeLayout toChangeBackground = (RelativeLayout)findViewById(R.id.total);
         toChangeBackground.setBackgroundResource(R.drawable.googlemap);
+        System.out.println("rm bottomtoolbar");
+
     }
 
     public void BottomPlay(View target)
