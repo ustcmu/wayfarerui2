@@ -63,6 +63,7 @@
                     android:background="#e2e2e2"
                     android:textColor="#000000"
                     android:scrollHorizontally="true"
+                    android:singleLine="true"
                 />           
             </RelativeLayout>
             
