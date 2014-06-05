@@ -53,7 +53,7 @@
                     android:background="@drawable/top_leftblank_shape"
                 />
                 <AutoCompleteTextView
-                    android:id="@+id/dest_addr"
+                    android:id="@+id/main_dest_addr"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/top_textview"
                     android:layout_centerVertical="true"
@@ -81,7 +81,7 @@
                 android:layout_weight = "4"
             >
                 <ImageButton
-                    android:id = "@+id/connect_button"
+                    android:id = "@+id/connection_indicator"
                     android:layout_width    = "@dimen/top_imagebutton"
                     android:layout_height   = "@dimen/top_imagebutton"
                     android:layout_centerInParent="true"
